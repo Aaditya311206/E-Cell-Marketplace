@@ -1,11 +1,84 @@
 @import "tailwindcss";
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
-body{
-  font-family:Arial, Helvetica, sans-serif;
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #020617;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+.variable-proximity {
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px -5px rgba(16, 185, 129, 0.2);
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Same border/glow feedback as .glass-card:hover, without the lift-and-scale. */
+.glass-card.static-card:hover {
+  transform: none;
+}
+
+.category-pill {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-pill:hover,
+.category-pill.active {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
